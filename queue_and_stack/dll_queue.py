@@ -8,6 +8,7 @@ class Queue:
         self.size = 0
 
         # Why is our DLL a good choice to store our elements?
+        # DLL is good because it's memory efficent O(1), there's no need to loop when removing or inserting elements
         self.storage = DoublyLinkedList()
 
     def enqueue(self, value):
