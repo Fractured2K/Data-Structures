@@ -31,10 +31,8 @@ class LRUCache:
         if key in self.storage:
             # Select node
             node = self.storage[key]
-
             # Move selected node to front of cache
             self.cache.move_to_front(node)
-
             # Return nodes current value
             return node.value[1]
 
