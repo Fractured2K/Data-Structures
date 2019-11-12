@@ -11,7 +11,10 @@ class LRUCache:
     to every node stored in the cache.
     """
     def __init__(self, limit=10):
-        pass
+        self.limit = limit
+        self.nodes = 0
+        self.cache = DoublyLinkedList()
+        self.storage = {}
 
     """
     Retrieves the value associated with the given key. Also
