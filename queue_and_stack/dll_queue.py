@@ -1,6 +1,6 @@
+from doubly_linked_list import DoublyLinkedList
 import sys
 sys.path.append('../doubly_linked_list')
-from doubly_linked_list import DoublyLinkedList
 
 
 class Queue:
@@ -20,6 +20,7 @@ class Queue:
 
         if value is not None:
             self.size -= 1
+
         return value
 
     def len(self):

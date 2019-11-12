@@ -1,6 +1,7 @@
+from doubly_linked_list import DoublyLinkedList
 import sys
 sys.path.append('../doubly_linked_list')
-from doubly_linked_list import DoublyLinkedList
+
 
 class Stack:
     def __init__(self):
@@ -22,14 +23,3 @@ class Stack:
 
     def len(self):
         return self.size
-
-s = Stack()
-
-s.push(10)
-s.push(15)
-s.push(122)
-
-print(s.pop())
-print(s.pop())
-print(s.pop())
-print(s.pop())
