@@ -32,7 +32,7 @@ class LRUCache:
             # Select node
             node = self.storage[key]
             # Move selected node to front of cache
-            self.cache.move_to_front(node)
+            self.cache.move_to_end(node)
             # Return nodes current value
             return node.value[1]
 
@@ -56,22 +56,22 @@ class LRUCache:
             # Assign new value to node
             node.value = (key, value)
             # Move to the front of cache
-            self.cache.move_to_front(node)
+            self.cache.move_to_end(node)
             return
 
         # Check cache capacity
         if self.nodes is self.limit:
             # Remove oldest item in storage
-            del self.storage[self.cache.tail.value[0]]
+            del self.storage[self.cache.head.value[0]]
             # Removes oldest item in cache
-            self.cache.remove_from_tail()
+            self.cache.remove_from_head()
             # Decrement amount of nodes
             self.nodes -= 1
 
         # Add newest item to front of cache
-        self.cache.add_to_head((key, value))
+        self.cache.add_to_tail((key, value))
         # Add newest item to storage
-        self.storage[key] = self.cache.head
+        self.storage[key] = self.cache.tail
         # Increment current node amount
         self.nodes += 1
 
