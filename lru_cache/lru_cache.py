@@ -55,7 +55,7 @@ class LRUCache:
             node = self.storage[key]
             # Assign new value to node
             node.value = (key, value)
-            # Move to the front of cache
+            # Move node to the front of cache
             self.cache.move_to_end(node)
             return
 
