@@ -31,11 +31,18 @@ class BinarySearchTree:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
+        # Compare target with current node
         pass
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # Check if current node points to a right node
+        # If not return the current nodes value
+        if self.right is None:
+            return self.value
+        else:
+            # Recursively call get max until the furthest right node is reached
+            return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
@@ -79,3 +86,6 @@ print(bst.left.value) # 2
 print(bst.right.value) # 7
 print(bst.left.right.value) # 3
 print(bst.right.left.value) #6
+
+print(bst.right.right)
+print("Max value", bst.get_max())
