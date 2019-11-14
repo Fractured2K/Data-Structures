@@ -110,7 +110,13 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        if self.left:
+            self.left.dft_print(node)
+
+        if self.right:
+            self.right.dft_print(node)
+
+        print(self.value)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
