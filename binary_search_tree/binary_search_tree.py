@@ -105,7 +105,7 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        # Create queue
+        # Instantiate queue
         queue = Queue()
         # Enqueue root node
         queue.enqueue(node)
@@ -128,7 +128,24 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        # Instantiate stack
+        stack = Stack()
+        # Add node to stack
+        stack.push(node)
+
+        # Iterate over tree while the queue is not empty
+        while stack.len() > 0:
+            # Pop first node out of stack
+            node = stack.pop()
+            print(node.value)
+
+            # Add current nodes left pointer node to stack if it exists
+            if node.left is not None:
+                stack.push(node.left)
+
+            # Add current nodes right pointer node to stack if it exists
+            if node.right is not None:
+                stack.push(node.right)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
@@ -153,4 +170,4 @@ bst.insert(2)
 bst.in_order_print(bst)
 print("---------bft--------")
 # bst.dft_print(bst)
-bst.bft_print(bst)
+bst.dft_print(bst)
