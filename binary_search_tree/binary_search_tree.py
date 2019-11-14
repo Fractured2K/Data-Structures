@@ -125,8 +125,6 @@ class BinarySearchTree:
             if node.right is not None:
                 queue.enqueue(node.right)
 
-    # Print the value of every node, starting with the given node,
-    # in an iterative depth first traversal
     def dft_print(self, node):
         # Instantiate stack
         stack = Stack()
@@ -157,17 +155,3 @@ class BinarySearchTree:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
-
-bst = BinarySearchTree(1)
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
-
-bst.in_order_print(bst)
-print("---------bft--------")
-# bst.dft_print(bst)
-bst.dft_print(bst)
