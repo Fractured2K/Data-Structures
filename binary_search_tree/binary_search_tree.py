@@ -10,9 +10,12 @@ class BinarySearchTree:
         self.left = None
         self.right = None
 
-    # Insert the given value into the tree
+
     def insert(self, value):
-        # Compare value to current nodes value
+        """
+        Inserts value into tree as a node
+        """
+        # Compare value to current node value
         if value < self.value:
             # Check to see if node is a leaf
             if self.left is None:
@@ -28,9 +31,10 @@ class BinarySearchTree:
                 # Recursively call the next node until a node is inserted
                 self.right.insert(value)
 
-    # Return True if the tree contains the value
-    # False if it does not
     def contains(self, target):
+        """
+        Checks to see if a node exists in the tree
+        """
         # Return true if current nodes value is the target
         if self.value is target:
             return True
@@ -51,20 +55,33 @@ class BinarySearchTree:
             # Recursively look at the right node
             return self.right.contains(target)
 
-    # Return the maximum value found in the tree
     def get_max(self):
+        """
+        Gets the highest value in the tree
+        """
         # Check if current node points to a right node
         # If not return the current nodes value
         if self.right is None:
             return self.value
-        else:
-            # Recursively call get max until the furthest right node is reached
-            return self.right.get_max()
 
-    # Call the function `cb` on the value of each node
-    # You may use a recursive or iterative approach
+        # Recursively call get max until the furthest right node is reached
+        return self.right.get_max()
+
+        # Iterative solution
+        # while self.right is not None:
+        #     self = self.right
+
+        # return self.value
+
     def for_each(self, cb):
-        pass
+        # Wrap value in cb
+        cb(self.value)
+
+        # Recursively traverse through every node, invoking the cb
+        if self.left:
+            self.left.for_each(cb)
+        if self.right:
+            self.right.for_each(cb)
 
     # DAY 2 Project -----------------------
 
@@ -95,15 +112,5 @@ class BinarySearchTree:
         pass
 
 bst = BinarySearchTree(5)
-bst.insert(2)
-bst.insert(3)
-bst.insert(7)
-bst.insert(6)
-print(bst.left.value) # 2
-print(bst.right.value) # 7
-print(bst.left.right.value) # 3
-print(bst.right.left.value) #6
-
-print(bst.right.right)
-print("Max value", bst.get_max())
-print("Contains", bst.contains(1))
+bst.insert(10)
+bst.for_each(lambda x: print(x))
